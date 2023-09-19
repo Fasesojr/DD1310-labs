@@ -1,43 +1,34 @@
-import felhantering  #  importerar felhanterings modulen
-
-def a_summa(a1, d, n):  #  funktion för att beräkna en aritmetisk summa med givna parameter
-    a2 = a1 + d*(n-1)
-    aritmetisk_summa = n*(a1 + a2)/2
-    return aritmetisk_summa
-
-def g_summa(g1, q, n):  #  funktion för att beräkna en geometrisk summa med givna parameter
-   geometrisk_summa = g1*((q**n)-1)/(q-1)
-   return geometrisk_summa
-
+import lab3_modul
+"""Importerar modul filen för funktioner och felhantering """
 
 def main():  #  huvudprogram
     
-    n = felhantering.is_int(input("Skriv in antal element i summorna [n]: "))
+    n = lab3_modul.is_int(input("Skriv in antal element i summorna [n]: "))
     
     val1 = input("Är den första summan aritmetisk[a] eller geometrisk[g]?\n")
     
     if val1 == "a":
-        a1 = felhantering.is_float(input("Skriv in startvärde [a1]: "))
-        d = felhantering.is_float(input("Skriv in differens [d]: "))
-        summa1 = a_summa(a1, d, n)
+        a1 = lab3_modul.is_float(input("Skriv in startvärde [a1]: "))
+        d = lab3_modul.is_float(input("Skriv in differens [d]: "))
+        summa1 = lab3_modul.a_summa(a1, d, n)
     
     elif val1 == "g":
-        g1 = felhantering.is_float(input("Skriv in startvärde [g1]: "))
-        q = felhantering.is_float(input("Skriv in kvoten [q]: "))
-        summa1 = g_summa(g1, q, n)
+        g1 = lab3_modul.is_float(input("Skriv in startvärde [g1]: "))
+        q = lab3_modul.is_float(input("Skriv in kvoten [q]: "))
+        summa1 = lab3_modul.g_summa(g1, q, n)
    
     
     val2 = input("Är den andra summan aritmetisk[a] eller geometrisk[g]?")  #  tar in användarens val för andra summan
     
     if val2 == "a":
-        a1 = felhantering.is_float(input("Skriv in startvärde [a1]: "))  
-        d = felhantering.is_float(input("Skriv in differens [d]: "))
-        summa2 = a_summa(a1, d, n)  #  beräknar aritmetisk summan med givna siffror från användaren
+        a1 = lab3_modul.is_float(input("Skriv in startvärde [a1]: "))  
+        d = lab3_modul.is_float(input("Skriv in differens [d]: "))
+        summa2 = lab3_modul.a_summa(a1, d, n)  #  beräknar aritmetisk summan med givna siffror från användaren
     
     elif val2 == "g":
-        g1 = float(input("Skriv in startvärde [g1]: "))
-        q = float(input("Skriv in kvoten [q]: "))
-        summa2 = g_summa(g1, q, n)  #  beräknar geometriska summan med givna siffror från användaren
+        g1 = lab3_modul.is_float(input("Skriv in startvärde [g1]: "))
+        q = lab3_modul.is_float(input("Skriv in kvoten [q]: "))
+        summa2 = lab3_modul.g_summa(g1, q, n)  #  beräknar geometriska summan med givna siffror från användaren
     
     if summa1 > summa2:
         print("Den första summan är störst.")
